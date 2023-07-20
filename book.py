@@ -5,3 +5,5 @@ def decrease_book(num):
     global number_of_book
     number_of_book -= num
     print(f'남은 책의 수 : {number_of_book}')
+
+    
