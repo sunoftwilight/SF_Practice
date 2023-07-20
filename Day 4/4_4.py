@@ -19,7 +19,14 @@ def create_user(list):
     return censored_user_list
 
 
+def censorship(cuser):
+    
+    if cuser.keys() in black_list:
+        print(f'{cuser['company']}')
+
+
 dummy_data = []
+
 
 for i in range(1,11):   
     API_URL_10 = (API_URL + str(i))    
@@ -33,24 +40,13 @@ for i in range(1,11):
         'company' : parsed_data['company']['name']
     }
 
-    dummy_data.append(user_info)
+    create_user(user_info)
+
+    # dummy_data.append(user_info)
 
 
 
-
-
-a = create_user(user_info)
-
-print(a)
+print()
 
 # users = []
 # users.append(create_user)
-
-# def censorship():
-    
-#     for i in range(1,11):
-#         if users[i].keys() in black_list:
-#             print(f'{users}')
-    
-
-#     if  in
