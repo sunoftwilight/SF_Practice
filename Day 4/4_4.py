@@ -1,6 +1,3 @@
-import requests
-from pprint import pprint as print
-
 # 무작위 유저 정보 요청 경로
 API_URL = 'https://jsonplaceholder.typicode.com/users/'
 
@@ -8,25 +5,28 @@ API_URL = 'https://jsonplaceholder.typicode.com/users/'
 black_list = ['Hoeger LLC', 'Keebler LLC', 'Yost and Sons', 'Johns Group', 'Romaguera-Crona']
 
 
-def create_user(list):
+def create_user(user_list):        # dummy_data가 인자
 
-    for item in list:
+    censored_user_list = {}        # company name = key, name = value
 
-        censored_user_list = {
-            list['company'] : list['name']
-        }
+    for data in user_list:
+        if censorship(data) :
+            censored_user_list[data['company']] = data['name'].split("=")
 
     return censored_user_list
 
 
-def censorship(cuser):
+def censorship(TF_user):              
     
-    if cuser.keys() in black_list:
-        print(f'{cuser['company']}')
+    if TF_user['company'] in black_list:
+        print(f"{TF_user['company']} 소속의 {TF_user['name']}은/는 등록할 수 없습니다.")
+        return False
+    else:
+        print('이상없습니다')
+        return True
 
 
 dummy_data = []
-
 
 for i in range(1,11):   
     API_URL_10 = (API_URL + str(i))    
@@ -40,13 +40,11 @@ for i in range(1,11):
         'company' : parsed_data['company']['name']
     }
 
-    create_user(user_info)
+    if float(user_info['lat']) < 80:
+        if float(user_info['lng']) > -80:
+            dummy_data.append(user_info)
 
-    # dummy_data.append(user_info)
 
 
 
-print()
-
-# users = []
-# users.append(create_user)
+print(create_user(dummy_data))
