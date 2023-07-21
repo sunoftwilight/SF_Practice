@@ -11,15 +11,16 @@ for i in range(1, 11):
     response = requests.get(API_URL_10)  # API 요청
     parsed_data = response.json()        # JSON -> dict 데이터 변환
 
-    user_info = {
-        'name' : parsed_data['name'], 
-        'lat' : parsed_data['address']['geo']['lat'],
-        'lng' : parsed_data['address']['geo']['lng'],
-        'company' : parsed_data['company']['name']
-    }
+    
 
     if float(user_info['lat']) < 80:
         if float(user_info['lng']) > -80:
+            user_info = {
+                'name' : parsed_data['name'], 
+                'lat' : parsed_data['address']['geo']['lat'],
+                'lng' : parsed_data['address']['geo']['lng'],
+                'company' : parsed_data['company']['name']
+            }
             dummy_data.append(user_info)
 
 print(dummy_data)

@@ -16,3 +16,14 @@ for i in range(1, 11):
 
 
 print(dummy_data)
+
+
+# Review of Professor
+dummy_data = []
+
+for i in range(1, 11):
+    API_URL_10 = f'https://jsonplaceholder.typicode.com/users/{i}'
+    response = requests.get(API_URL_10).json()  # API 요청
+    dummy_data.append(response.get('name'))
+
+print(dummy_data)
