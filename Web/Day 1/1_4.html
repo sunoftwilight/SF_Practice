@@ -10,14 +10,24 @@
       width : 400px;
       height: 200px;
       border: 2px solid black;
-      text-align: center;
-      color: red;
+      /* text-align: center;
+      color: red; */
     }
 
-		/* 추가 css 코드 작성 1 */
-    .outer-box > span {
+		/* 추가 css 코드 작성 */
+    /* .outer-box > span {
       text-align: inherit;
       color: inherit;
+    } */
+    /* 교수님 풀이 1 -> body 자손 중 div의 첫번째 자식 */
+    /* body > div > div:nth-child(1) {
+        color: red;
+        text-align: center;
+    } */
+    /* 교수님 풀이 2 */
+    .outer-box > div:first-child {
+      color: red;
+      text-align: center;
     }
     
     .inner-box {
