@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+
+  <style>
+    .header {
+      height: 700px;
+      background-image: url("images/header.jpg");
+      /* cover : 너비에 맞게 배경을 꽉 채우는 것
+         contain : 높이에 맞게 배경을 채우고, 모자란 너비는 바둑판처럼 반복해서 채움 */
+      background-size: cover;
+    }
+  </style>
+</head>
+
+<body>
+  <!-- 1. 네비게이션 바 -->
+  <nav class="d-flex justify-content-between bg-dark pt-2 px-3 fixed-top">
+    <!-- 네비게이션 바의 로고 -->
+    <a href="#">
+      <img src="images/logo.png" alt="" width="80px">
+    </a>
+
+    <!-- 네비게이션 바의 메뉴 -->
+    <!-- "list-unstyled" : 리스트의 불릿을 제거하는 클래스 -->
+    <ul class="list-unstyled d-flex">
+      <!-- 3이 1rem => x축에 대해 텍스트 사이에 각각 마진 1rem + 1rem = 2rem -->
+      <!-- "text-decoration-none" : 하이퍼텍스트의 밑줄을 제거하는 클래스 -->
+      <li class="mx-3"><a class="text-white text-decoration-none" href="#">Home</a></li>
+      <li class="mx-3"><a class="text-white text-decoration-none" href="#">Cummunity</a></li>
+      <li class="mx-3"><a class="text-white text-decoration-none" href="#">Login</a></li>
+    </ul>
+  </nav>
+
+  <!-- 2. Header -->
+  <!-- 요소들이 아래 방향으로 흐르고 있으므로 축 변경 필요 => flex-column  -->
+  <!-- justify-content : main축에 대해 요소별 공간 분배 -->
+  <!-- align-items : 여러 열/행을 정렬 -->
+  <header class="d-flex flex-column justify-content-center align-items-center header display-2 fw-bold text-white">
+    <p>Cinema</p>
+    <p>Community</p>
+    <a class="btn btn-primary btn-lg mt-3" href="#">Let's go</a>
+  </header>
+
+  <!-- 3. Section -->
+  <section class="my-3 py-5">
+    <h1 class="text-center my-5">Used Skills</h1>
+    <!-- justify-content-around : 요소들 사이의 간격을 동일하게 맞춰줌 -->
+    <!-- justify-content-evenly : 요소들 사이의 간격과 양 옆의 여백까지 간격을 동일하게 맞춰줌 -->
+    <article class="d-flex justify-content-around">
+
+      <!-- Web -->
+      <div class="text-center">
+        <img src="images/web.png" alt="">
+        <p>Web</p>
+      </div>
+
+      <!-- HTML -->
+      <div class="text-center">
+        <img src="images/html5.png" alt="">
+        <p>HTML</p>
+      </div>
+
+      <!-- CSS -->
+      <div class="text-center">
+        <img src="images/css3.png" alt="">
+        <p>CSS</p>
+      </div>
+    </article>
+  </section>
+
+  <!-- 4. Footer -->
+  <footer class="d-flex fixed-bottom justify-content-center align-items-center bg-primary">
+    <p class="text-white fw-bold mb-0">HTML & CSS project. Created by sun_.ovo</p>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
+</body>
+</html>
