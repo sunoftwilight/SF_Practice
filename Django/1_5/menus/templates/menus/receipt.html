@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+
+{% block content %}
+  {% if fnd == 'food' %}
+    {% if thing in foods %}
+      <p>{{ thing|capfirst }} 주문 받아따 !!</p>
+    {% else %}
+      <p>{{ thing|capfirst }}은/는 주문이 안된다 !!</p>
+    {% endif %}
+  {% else %} 
+    {% if thing in drinks %}
+      <p>{{ thing|capfirst }} 주문 받아따 !!</p>
+    {% else %}
+      <p>{{ thing|capfirst }}은/는 주문이 안된다 !!</p>
+    {% endif %}
+  {% endif %}
+{% endblock content %}

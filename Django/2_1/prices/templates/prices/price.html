@@ -6,10 +6,10 @@
   <title>Document</title>
 </head>
 <body>
-  {% for item in fruit_list %}
-    {% if item not in hate and item|length >= 2 %}
-      <p>{{ item|truncatechars:3 }}</p>
-    {% endif %}
-  {% endfor %}
+  {% if thing in things %}
+    <p>{{ thing }} {{ cnt }}개의 가격은 {{ total }}원 입니다.</p>
+  {% elif total == None %}
+    <p>{{ thing }}은/는 없어용</p>
+  {% endif %}
 </body>
 </html>

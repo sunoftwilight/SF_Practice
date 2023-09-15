@@ -6,10 +6,9 @@
   <title>Document</title>
 </head>
 <body>
-  {% for item in fruit_list %}
-    {% if item not in hate and item|length >= 2 %}
-      <p>{{ item|truncatechars:3 }}</p>
-    {% endif %}
-  {% endfor %}
+  <h1>백엔드 과정 수료증</h1>
+  {% block content %}
+  {% endblock content %}
+  <h2>백엔드 과정 수료를 축하합니다!</h2>
 </body>
 </html>

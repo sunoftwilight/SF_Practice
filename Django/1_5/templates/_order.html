@@ -1,0 +1,19 @@
+<h1>주문해주세요!</h1>
+<hr>
+{% for item in items %}
+  <p>{{item}}</p>
+{% endfor %}
+
+<form action="/receipt/">
+  <label>
+    <!-- 종류 확인 (food/drink) -->
+    <!-- food 페이지에서는 views에서 fnd를 food로 설정해둠 -> {{ fnd }} == food -->
+    <!-- drink 페이지에서는 views에서 fnd를 drink로 설정해둠 -> {{ fnd }} == drink -->
+    <input type="hidden" name="fnd" value='{{fnd}}'>
+    주문란 : 
+    <!-- name은 input값을 전달해줄 매개변수 -->
+    <input type="text" name="thing">
+    <!-- value는 버튼 안에 들어갈 말 -->
+    <input type="submit" value="주문하기">
+  </label>
+</form>

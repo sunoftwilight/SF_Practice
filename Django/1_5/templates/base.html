@@ -6,10 +6,7 @@
   <title>Document</title>
 </head>
 <body>
-  {% for item in fruit_list %}
-    {% if item not in hate and item|length >= 2 %}
-      <p>{{ item|truncatechars:3 }}</p>
-    {% endif %}
-  {% endfor %}
+  {% block content %}
+  {% endblock content %}
 </body>
 </html>
