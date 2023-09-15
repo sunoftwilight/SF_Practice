@@ -1,0 +1,9 @@
+# 글 작성
+article = Article.objects.create(title='first', content='django!')
+
+# 조회
+article = Article.objects.all()
+
+# 확인
+article
+
