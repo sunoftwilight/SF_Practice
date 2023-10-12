@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h1>Todo다 이놈들아</h1>
+<hr>
+{% for todo in todos %}
+  <ul>
+    {% if todo.completed == True %}
+      <li> {{ todo.author }}놈은 드디어 "{{ todo.title }}"를 했다! </li>
+    {% else %}
+      <li> {{ todo.author }}놈은 아직도 "{{ todo.title }}"를 안했다.. </li>
+    {% endif %}
+  </ul>
+{% empty %}
+  <p>아무코토 없더..</p>
+{% endfor %}
+{% endblock content %}
