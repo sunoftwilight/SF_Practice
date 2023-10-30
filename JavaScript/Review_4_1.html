@@ -26,12 +26,15 @@
 
       function filterMessage(event) {
         // badWords에 포함된 단어가 입력될 경우, '**'으로 변환하여 output에 출력 
-        const filteredInput = event.innerText
-        console.log(filteredInput)
-        if (filteredInput in badWords) {
-          // console.log(event.innerText)
-          filteredInput = '**'
-        }
+
+        let filteredInput = event.target.value
+
+        badWords.forEach((item) => {
+          while (filteredInput.includes(item)) {
+            filteredInput = filteredInput.replace(item, '**')
+          }
+        })
+
         output.innerText = filteredInput
       }
 
