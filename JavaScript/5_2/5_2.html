@@ -28,11 +28,17 @@
     const getDog = function () {      
       axios.get(API_URI)
         .then((res) => {
-          const imgUrl = res.data['message']
+          // const imgUrl = res.data['message']
+          const imgUrl = res.data.message
           imgTag.setAttribute('src', imgUrl)
-          if (h2Tag = document.querySelector('h2')) {
-            bodyTag.removeChild(h2Tag)
-          }
+          // if (h2Tag = document.querySelector('h2')) {
+          //   bodyTag.removeChild(h2Tag)
+          // }
+          const h2Tag = document.querySelector('h2')
+          h2Tag.textContent = ''
+        })
+        .catch((err) => {
+          console.log(err)
         })
     } 
 
