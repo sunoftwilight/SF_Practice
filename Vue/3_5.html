@@ -30,7 +30,7 @@
       <h3>관람 예정인 전시 : {{ selectedInfos }}</h3>
       <p>예상 총 금액 : {{ totalPrice }}</p>
     </div>
-    <h3 v-show="selectedInfos.length">관람 예정인 전시가 없습니다.</h3>
+    <h3 v-show="!selectedInfos.length">관람 예정인 전시가 없습니다.</h3>
     <hr>
     <label for="isActive">전시 중인 정보만 보기</label>
     <input type="checkbox" id="isActive" v-model="isActive">
@@ -124,13 +124,15 @@
         }) 
 
         const selectedInfos = ref([])
-        let totalPrice = ref(0)
-        const selectWatch = watch(() => {
-          const filterdInfos = infos.value.filter((info) => info.isSelected)
-          // filterdInfos.forEach(element => {
-          //   selectedInfos.push(element.name)
-          // })
-          filterdInfos.forEach(element => { totalPrice += element });
+        const totalPrice = ref(0)
+
+        const selectWatch = watch(infos.value, (oldValue, newValue) => {
+          const filterdInfos = infos.value.filter((info) => { return info.isSelected })
+
+          selectedInfos.value = filterdInfos.map((info) => { return info.name })
+
+          const priceInfo = filterdInfos.map((info) => { return info.price })
+          totalPrice.value = priceInfo.reduce((acc, cur) => acc + cur, 0)
         })
 
         return {
@@ -139,7 +141,7 @@
           isActiveExhibition,
           selectedInfos,
           totalPrice,
-          selectWatch
+          selectWatch,
         }
       }
     })
