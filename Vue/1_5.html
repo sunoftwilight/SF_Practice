@@ -39,11 +39,11 @@
     const { createApp, ref } = Vue
     const app = createApp({
       setup () {
-        let students = ref(['홍길동', '이춘향', '금나래', '장보고', '임꺽정', '강감찬']) 
-        let student1 = ref(students.value[0])
-        let student2 = ref(students.value[1])
-        let student3 = ref(students.value[2])
-        let student0 = ref(students.value[students.value.length - 1])
+        const students = ref(['홍길동', '이춘향', '금나래', '장보고', '임꺽정', '강감찬']) 
+        // let student1 = ref(students.value[0])
+        // let student2 = ref(students.value[1])
+        // let student3 = ref(students.value[2])
+        // let student0 = ref(students.value[students.value.length - 1])
 
         const shuffle = function () {
           students.value = _.shuffle(students.value)

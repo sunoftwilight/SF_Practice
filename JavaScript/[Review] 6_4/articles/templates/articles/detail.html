@@ -78,7 +78,8 @@
           // const deleteBtn = document.querySelector('#delete-btn')
           // newComment.textContent = `${ data.user } - ${ data.content }`
 
-          newComment.innerHTML = `
+          newComment.innerHTML = 
+          `
             {{ request.user }} - ${input.value}
             <form action="/articles/${articlePk}/comments/${commentPk}/delete" method="POST" class='d-inline'>
               {% csrf_token %}
@@ -126,7 +127,8 @@
             .then((res) => {
               // console.log(res)
               const { articlePk, commentPk } = res.data
-              commentLi.innerHTML = `
+              commentLi.innerHTML = 
+              `
                 {{ request.user }} - <span>${input.value}</span>
           
                 <form action="/articles/${articlePk}/comments/${commentPk}/delete/" method="POST" class="d-inline">
