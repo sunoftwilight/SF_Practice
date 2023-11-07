@@ -12,24 +12,13 @@
     <label for="isActive">전시 중인 정보만 보기</label>
     <input type="checkbox" id="isActive" v-model="isActive">
     <ul>
-      <template v-if="isActive">
-        <li v-for="info in isActiveExhibition" :key="info.name">
-          <h3>{{ info.name }}</h3>
-          <hr>
-          <p>{{ info.place }}</p>
-          <p>가격 : {{ info.price }}</p>
-          <hr>
-        </li>
-      </template>
-      <template v-else>
-        <li v-for="info in infos" :key="info.name">
-          <h3>{{ info.name }}</h3>
-          <hr>
-          <p>{{ info.place }}</p>
-          <p>가격 : {{ info.price }}</p>
-          <hr>
-        </li>
-      </template>
+      <li v-for="info in isActive ? isActiveExhibition : infos" :key="info.name">
+        <h3>{{ info.name }}</h3>
+        <hr>
+        <p>{{ info.place }}</p>
+        <p>가격 : {{ info.price }}</p>
+        <hr>
+      </li>
     </ul>
   </div>
 

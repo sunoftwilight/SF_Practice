@@ -25,27 +25,15 @@
     <h1>다양한 전시 정보</h1>
     <label for="isActive">전시 중인 정보만 보기</label>
     <input type="checkbox" id="isActive" v-model="isActive">
-    <ul>
-      <template v-if="isActive" v-for="info in isActiveExhibition" :key="info.name">
-        <li :class="{ 'cheap': info.price <= 5000, 'expensive': info.price >= 20000 }">
-          <h3>{{ info.name }}</h3>
-          <hr>
-          <p>{{ info.place }}</p>
-          <p>가격 : {{ info.price }}</p>
-          <p v-if="info.price === 0">무료 전시입니다.</p>
-          <hr>
-        </li>
-      </template>
-      <template v-else="" v-for="info in infos" :key="info.name">
-        <li :class="{ 'cheap': info.price <= 5000, 'expensive': info.price >= 20000 }">
-          <h3>{{ info.name }}</h3>
-          <hr>
-          <p>{{ info.place }}</p>
-          <p>가격 : {{ info.price }}</p>
-          <p v-if="info.price === 0">무료 전시입니다.</p>
-          <hr>
-        </li>
-      </template>
+    <ul v-for="info in isActive ? isActiveExhibition : infos" :key="info.name">
+      <li :class="{ 'cheap': info.price <= 5000, 'expensive': info.price >= 20000 }">
+        <h3>{{ info.name }}</h3>
+        <hr>
+        <p>{{ info.place }}</p>
+        <p>가격 : {{ info.price }}</p>
+        <p v-if="info.price === 0">무료 전시입니다.</p>
+        <hr>
+      </li>
     </ul>
   </div>
 
